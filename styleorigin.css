@@ -1,0 +1,274 @@
+/* Global Reset and Settings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #ffffff;
+    color: #333333;
+    padding: 20px; /* Base outer frame padding */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Header Styles */
+.main-header h1 {
+    text-align: center;
+    font-family: 'Georgia', serif; 
+    font-size: 4rem;           
+    font-weight: 400;          
+    letter-spacing: 0.5px;
+    color: #1a1a1a;            
+}
+
+/* Navigation Menu Styles */
+.navbar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 10; 
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.navbar a {
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    color: #a0a0a0; 
+    display: block;
+    padding: 10px 0;
+    transition: color 0.2s ease;
+}
+
+.navbar li.active > a,
+.navbar a:hover {
+    color: #333333; 
+}
+
+/* Dropdown Sub-menu Setup */
+.dropdown {
+    position: relative;
+}
+
+.dropdown .dropdown-menu {
+    display: flex; 
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 50%;                     
+    transform: translate(-50%, -10px); 
+    background-color: rgba(255, 255, 255, 0.95); 
+    border: 1px solid #dcdcdc;
+    width: 260px;                  
+    gap: 0; 
+    
+    visibility: hidden;            
+    opacity: 0;                    
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+.dropdown:hover .dropdown-menu {
+    visibility: visible;           
+    opacity: 1;                    
+    transform: translate(-50%, 0); 
+}
+
+.dropdown-menu li {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.dropdown-menu li:last-child {
+    border-bottom: none;
+}
+
+.dropdown-menu a {
+    color: #8c8c8c;
+    font-size: 0.75rem;
+    line-height: 1.3;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f9f9f9;
+    color: #333333;
+}
+
+/* Hero Section Layout (Identical dimensions as Home Page) */
+.hero-section {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    height: 500px; /* Kept exactly the same height as home page banner */
+    margin: 0 auto;
+    background: #1a1a1a url('https://i.redd.it/rlrb2d1rll3b1.jpg') no-repeat center center/cover; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.25); /* Adjusted blend opacity slightly for readability */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+    padding: 0 20px;
+}
+
+.hero-overlay h2 {
+    font-family: 'Georgia', serif; 
+    font-size: 3.5rem; /* Large elegant presentation font size */
+    font-weight: 400;
+    margin-bottom: 20px;
+    color: #f7e1a0; /* Soft gold accent tone matching your reference screenshot */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.subtitle {
+    font-size: 1.15rem;
+    font-weight: 300;
+    margin-bottom: 0;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Page Intro/Content Section styling */
+.page-content-section {
+    width: 100%;
+    max-width: 800px; /* Matches the tighter alignment format you preferred */
+    margin: 60px auto 40px auto;
+    text-align: center;
+}
+
+.page-content-section h2 {
+    font-family: 'Georgia', serif;
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: #1a1a1a;
+    margin-bottom: 25px;
+}
+
+.page-content-section p {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #666666;
+    margin-bottom: 40px;
+    padding: 0 10px;
+}
+
+.section-divider {
+    width: 100%;
+    border: none;
+    border-top: 1px solid #e5e5e5;
+    margin-bottom: 50px;
+}
+
+/* Sub-Page Content Columns Layout */
+.sub-items-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two parallel columns layout structure */
+    gap: 60px; /* Generates wide horizontal gutter spacing */
+    text-align: left;
+}
+
+.sub-item-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.sub-item-card h3 {
+    font-family: 'Georgia', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+}
+
+.sub-item-card h3 span {
+    font-weight: normal;
+    font-size: 1.1rem;
+    color: #555555;
+}
+
+.sub-item-meta {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 0.9rem;
+    color: #666666;
+    margin-bottom: 20px;
+}
+
+.sub-item-card p {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #555555;
+    margin-bottom: 25px;
+    flex-grow: 1; /* Aligns secondary baseline learning triggers */
+}
+
+/* Dark Accent Button Links */
+.btn-learn-more {
+    display: inline-block;
+    background-color: #2b2b2b;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    transition: background-color 0.2s ease;
+}
+
+.btn-learn-more:hover {
+    background-color: #444444; 
+}
+
+/* Responsive UI Adjustment Layer */
+@media (max-width: 768px) {
+    .main-header h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero-section {
+        height: 400px; /* Scales down gently for compact device displays */
+    }
+
+    .hero-overlay h2 {
+        font-size: 2.3rem;
+    }
+
+    .page-content-section {
+        padding: 0 20px;
+    }
+
+    .page-content-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .sub-items-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Changed from repeat(2, 1fr) to fit all 3 side-by-side */
+    gap: 40px; /* Snugs them up neatly next to each other */
+    text-align: left;
+}
