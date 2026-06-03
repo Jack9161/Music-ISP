@@ -1,0 +1,316 @@
+/* Global Reset and Settings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #ffffff;
+    color: #333333;
+    padding: 20px; /* Base outer frame padding */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Header Styles */
+.main-header h1 {
+    text-align: center;
+    font-family: 'Georgia', serif; 
+    font-size: 4rem;           
+    font-weight: 400;          
+    letter-spacing: 0.5px;
+    color: #1a1a1a;            
+}
+
+/* Navigation Menu Styles */
+.navbar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 10; 
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.navbar a {
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    color: #a0a0a0; 
+    display: block;
+    padding: 10px 0;
+    transition: color 0.2s ease;
+}
+
+.navbar li.active > a,
+.navbar a:hover {
+    color: #333333; 
+}
+
+/* Dropdown Sub-menu Setup */
+.dropdown {
+    position: relative;
+}
+
+.dropdown .dropdown-menu {
+    display: flex; 
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 50%;                     
+    transform: translate(-50%, -10px); 
+    background-color: rgba(255, 255, 255, 0.95); 
+    border: 1px solid #dcdcdc;
+    width: 260px;                  
+    gap: 0; 
+    
+    visibility: hidden;            
+    opacity: 0;                    
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+.dropdown:hover .dropdown-menu {
+    visibility: visible;           
+    opacity: 1;                    
+    transform: translate(-50%, 0); 
+}
+
+.dropdown-menu li {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.dropdown-menu li:last-child {
+    border-bottom: none;
+}
+
+.dropdown-menu a {
+    color: #8c8c8c;
+    font-size: 0.75rem;
+    line-height: 1.3;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f9f9f9;
+    color: #333333;
+}
+
+/* Hero Section Layout */
+.hero-section {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    height: 500px;
+    margin: 0 auto;
+    background: #1a1a1a url('https://i.redd.it/rlrb2d1rll3b1.jpg') no-repeat center center/cover; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.35); 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+    padding: 0 20px;
+}
+
+.hero-overlay h2 {
+    font-family: 'Georgia', serif; 
+    font-size: 3rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    font-weight: 300;
+    margin-bottom: 40px;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.cta-text {
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+/* Intro Section Layout */
+.intro-section {
+    width: 100%;
+    max-width: 1200px; 
+    margin: 50px auto; 
+    padding: 0;        
+}
+
+.intro-container {
+    display: flex;
+    gap: 5px;           
+    align-items: center; 
+}
+
+/* Image Column Alignment */
+.intro-image-wrapper {
+    flex: 0 0 40%;       
+}
+
+.intro-image {
+    width: 50%;
+    height: auto;
+    display: block;      
+    object-fit: cover;
+}
+
+/* Text Column Alignment */
+.intro-text {
+    flex: 1;             
+}
+
+.intro-text p {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: #4a4a4a;
+    margin-bottom: 24px;
+}
+
+.intro-text p:last-child {
+    margin-bottom: 0;
+}
+
+.intro-text em {
+    font-style: italic;
+}
+
+.intro-text a {
+    color: #4682B4; 
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.intro-text a:hover {
+    text-decoration: underline;
+}
+
+/* Categories Section Layout (Brought closer together and centered) */
+.categories-section {
+    width: 100%;
+    max-width: 800px; /* Narrowed layout container pulls the cards tighter to the center */
+    margin: 80px auto 40px auto; 
+    padding: 40px 0 0 0;
+    border-top: 1px solid #e5e5e5; 
+}
+
+.categories-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; /* Reduced gutter spacing brings columns closer horizontally */
+    justify-content: center;               
+}
+
+/* Individual Card Styling */
+.category-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center;
+}
+
+/* Image Uniformity Settings */
+.category-image-wrapper {
+    width: 100%;
+    height: 140px; 
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.category-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; 
+}
+
+/* Text Layering typography */
+.category-card h3 {
+    font-family: 'Georgia', serif;
+    font-size: 1.65rem;
+    font-weight: 400;
+    color: #1a1a1a;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.category-card p {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #555555;
+    margin-bottom: 30px;
+    flex-grow: 1; 
+}
+
+/* Dark Accent Button Links */
+.btn-learn-more {
+    display: inline-block;
+    background-color: #2b2b2b;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 12px 24px;
+    transition: background-color 0.2s ease;
+}
+
+.btn-learn-more:hover {
+    background-color: #444444; 
+}
+
+/* Responsive UI Adjustment Layer */
+@media (max-width: 768px) {
+    .intro-section {
+        padding: 0 20px; 
+    }
+    
+    .intro-container {
+        flex-direction: column; 
+        gap: 3px;
+    }
+    
+    .intro-image-wrapper {
+        flex: 0 0 100%;
+    }
+
+    .categories-section {
+        padding: 40px 20px 0 20px; 
+    }
+
+    .categories-container {
+        grid-template-columns: 1fr; /* Stacks vertically on smaller mobile displays */
+        gap: 50px;
+    }
+}
